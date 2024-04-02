@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:
+    build: .
+    depends_on:
+      - proxy
+    networks:
+      - mynetwork
+    env_file:
+      - .env
+  proxy:
+    image: sameersbn/squid:3.5.27-2
+    ports:
+      - "3128:3128"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
