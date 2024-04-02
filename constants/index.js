@@ -7,11 +7,10 @@ module.exports.databricksConfig = {
     oauthClientSecret: process.env.DATABRICKS_CLIENT_SECRET || "",
     useDatabricksOAuthInAzure: true,
     https: true,
-    
+    proxy: {
+        protocol: process.env.DATABRICKS_HTTP_PROXY_PROTOCOL || "",
+        host: process.env.DATABRICKS_HTTP_PROXY_HOST || "",
+        port: process.env.DATABRICKS_HTTP_PROXY_PORT || "",
+    }
 }
 
-// proxy: {
-//     protocol: process.env.DATABRICKS_HTTP_PROXY_PROTOCOL || "",
-//     host: process.env.DATABRICKS_HTTP_PROXY_HOST || "",
-//     port: process.env.DATABRICKS_HTTP_PROXY_PORT || "",
-// },
